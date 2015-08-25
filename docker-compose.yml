@@ -1,0 +1,22 @@
+postgres:
+  image: postgres
+  environment:
+    - POSTGRES_PASSWORD=password
+
+taiga:
+  build: .
+  ports:
+    - 80:80
+  links:
+    - postgres
+  environment:
+    - TAIGA_HOSTNAME=http://taiga.mycompany.com
+
+    # - TAIGA_SSL=True # To enable SSL, uncomment this line
+
+    # To use an external database, fill in these values and remove
+    # the link to the postgres service.
+    # - TAIGA_DB_NAME=taiga
+    # - TAIGA_DB_HOST=
+    # - TAIGA_DB_USER=taiga
+    # - TAIGA_DB_PASSWORD=password

@@ -1,0 +1,14 @@
+{
+    "api": "http://TAIGA_HOSTNAME/api/v1/",
+    "eventsUrl": null,
+    "debug": true,
+    "debugInfo": false,
+    "defaultLanguage": "en",
+    "publicRegisterEnabled": false,
+    "feedbackEnabled": true,
+    "privacyPolicyUrl": null,
+    "termsOfServiceUrl": null,
+    "maxUploadFileSize": null,
+    "contribPlugins": ["/js/slack.js"],
+    "loginFormType": "ldap"
+}
