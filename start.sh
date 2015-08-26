@@ -20,7 +20,7 @@ sleep 10
 
 docker run \
   --restart=always \
-  -d \
+  -itd \
   --name mytaiga \
   -p 80:80 \
   --link taiga-postgres:postgres \

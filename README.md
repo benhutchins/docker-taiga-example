@@ -16,6 +16,6 @@ You'll need to download the appropriate compiled `slack.js` file from this repo 
 
 ### LDAP
 
-	> [taiga-contrib-ldap-auth](https://github.com/ensky/taiga-contrib-ldap-auth)
+> [taiga-contrib-ldap-auth](https://github.com/ensky/taiga-contrib-ldap-auth)
 
-	You'll need to configure your `local.py` file with the correct LDAP server details. Please see the project link above for details.
+You'll need to configure your `local.py` file with the correct LDAP server details. Please see the project link above for details.
