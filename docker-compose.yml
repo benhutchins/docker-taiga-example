@@ -3,12 +3,33 @@ postgres:
   environment:
     - POSTGRES_PASSWORD=password
 
+rabbit:
+  image: rabbitmq:3
+  hostname: taiga-rabbit
+
+redis:
+  image: redis:3
+
+celery:
+  image: celery
+  links:
+    - rabbit
+
+events:
+  image: benhutchins/taiga-events
+  links:
+    - rabbit
+
 taiga:
   build: .
   ports:
     - 80:80
+    # - 443:443 # To enable SSL, uncomment this line
   links:
     - postgres
+    - events
+    - rabbit
+    - redis
   environment:
     - TAIGA_HOSTNAME=http://taiga.mycompany.com
 
