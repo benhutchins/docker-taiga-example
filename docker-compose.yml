@@ -31,7 +31,7 @@ taiga:
     - rabbit
     - redis
   environment:
-    - TAIGA_HOSTNAME=http://taiga.mycompany.com
+    - TAIGA_HOSTNAME=taiga.mycompany.com
 
     # - TAIGA_SSL=True # To enable SSL, uncomment this line
 
