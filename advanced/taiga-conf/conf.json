@@ -1,0 +1,17 @@
+{
+    "api": "http://TAIGA_HOSTNAME/api/v1/",
+    "eventsUrl": null,
+    "eventsMaxMissedHeartbeats": 5,
+    "eventsHeartbeatIntervalTime": 60000,
+    "debug": true,
+    "defaultLanguage": "en",
+    "themes": ["taiga", "material-design", "high-contrast"],
+    "defaultTheme": "taiga",
+    "publicRegisterEnabled": true,
+    "feedbackEnabled": false,
+    "privacyPolicyUrl": null,
+    "termsOfServiceUrl": null,
+    "maxUploadFileSize": null,
+    "contribPlugins": ["/slack.js"],
+    "loginFormType": "ldap"
+}

@@ -1,0 +1,27 @@
+postgres:
+  image: postgres
+  environment:
+    POSTGRES_DB: taiga
+    POSTGRES_USER: taiga
+    POSTGRES_PASSWORD: password
+  volumes:
+    - ./database:/var/lib/postgresql/data
+
+taiga:
+  build: benhutchins/taiga
+  ports:
+    - 80:80
+    # - 443:443 # To enable SSL, uncomment this line
+  links:
+    - postgres
+  environment:
+    TAIGA_HOSTNAME: taiga.mycompany.com
+    # TAIGA_SSL: 'true' # To enable SSL, uncomment this line
+
+    TAIGA_DB_HOST: postgres
+    TAIGA_DB_NAME: taiga
+    TAIGA_DB_USER: taiga
+    TAIGA_DB_PASSWORD: password
+  volumes:
+    - ./media:/usr/src/taiga-back/media
+    - ./taiga-conf:/taiga
