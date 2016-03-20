@@ -17,3 +17,9 @@ INSTALLED_APPS += ["taiga_contrib_slack"]
 ## LDAP
 # see https://github.com/ensky/taiga-contrib-ldap-auth
 # INSTALLED_APPS += ["taiga_contrib_ldap_auth"]
+
+## GOGS
+# see https://github.com/taigaio/taiga-contrib-gogs
+INSTALLED_APPS += ["taiga_contrib_gogs"]
+PROJECT_MODULES_CONFIGURATORS["gogs"] = "taiga_contrib_gogs.services.get_or_generate_config"
+
