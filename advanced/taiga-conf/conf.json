@@ -1,5 +1,5 @@
 {
-    "api": "http://TAIGA_HOSTNAME/api/v1/",
+    "api": "http://taiga.goodworkapps.com/api/v1/",
     "eventsUrl": null,
     "eventsMaxMissedHeartbeats": 5,
     "eventsHeartbeatIntervalTime": 60000,
@@ -13,8 +13,8 @@
     "termsOfServiceUrl": null,
     "maxUploadFileSize": null,
     "contribPlugins": [
-	"/slack.js"
-        "/gogs.json"
+	"/plugins/slack/slack.json",
+	"/plugins/gogs/gogs.json"
     ],
     "loginFormType": "ldap"
 }
