@@ -8,7 +8,7 @@ postgres:
     - ./database:/var/lib/postgresql/data
 
 taiga:
-  build: benhutchins/taiga
+  image: benhutchins/taiga
   ports:
     - 80:80
     # - 443:443 # To enable SSL, uncomment this line
