@@ -1,16 +1,14 @@
 {
-    "api": "http://TAIGA_HOSTNAME/api/v1/",
+    "api": "http://taiga.mycompany.com/api/v1/",
     "eventsUrl": null,
-    "eventsMaxMissedHeartbeats": 5,
-    "eventsHeartbeatIntervalTime": 60000,
-    "debug": true,
+    "debug": false,
+    "debugInfo": false,
     "defaultLanguage": "en",
-    "themes": ["taiga", "material-design", "high-contrast"],
-    "defaultTheme": "taiga",
-    "publicRegisterEnabled": true,
+    "publicRegisterEnabled": false,
+    "gravatar": false,
     "feedbackEnabled": false,
     "privacyPolicyUrl": null,
     "termsOfServiceUrl": null,
     "maxUploadFileSize": null,
-    "contribPlugins": []
+    "contribPlugins": ["/slack.js"]
 }
