@@ -1,11 +1,15 @@
 postgres:
   image: postgres
   environment:
-    POSTGRES_PASSWORD: password
+    POSTGRES_PASSWORD: password 
+  volumes:
+    # This ensures files uploaded to Taiga are not lost when recreating
+    # your taiga container during upgrades
+    - ./data:/var/lib/postgresql/data
 
 rabbit:
   image: rabbitmq:3
-  hostname: taiga-rabbit
+  hostname: rabbit
 
 redis:
   image: redis:3
@@ -31,12 +35,12 @@ taiga:
     - rabbit
     - redis
   environment:
-    TAIGA_HOSTNAME: taiga.mycompany.com
+    TAIGA_HOSTNAME: example.com
     # TAIGA_SSL: 'true' # To enable SSL, uncomment this line
 
-    TAIGA_DB_HOST: postgres
-    TAIGA_DB_NAME: taiga
-    TAIGA_DB_USER: taiga
+    #TAIGA_DB_HOST: postgres
+    #TAIGA_DB_NAME: taiga
+    #TAIGA_DB_USER: taiga
     TAIGA_DB_PASSWORD: password
   volumes:
     # This ensures files uploaded to Taiga are not lost when recreating
