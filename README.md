@@ -20,7 +20,7 @@ git clone https://github.com/benhutchins/docker-taiga-example.git mytaiga
 cd mytaiga/
 
 # Optional, but likely desired, update your configuration now
-vi docker-compose.yml
+vi docker-compose.yml # Be sure to update the TAIGA_HOSTNAME
 vi taiga-conf/conf.json
 vi taiga-conf/local.py
 
@@ -30,15 +30,8 @@ docker-compose  up -d
 # Wait ~30 seconds. The taiga container will initialize your postgres database.
 
 # Now open your web browser:
-oepn http://localhost/
+open http://localhost/
 ````
-
-### How to use
-
-First clone this repository and edit the configuration files (see [taiga-conf](https://github.com/benhutchins/docker-taiga-example/tree/master/taiga-conf)). View and edit `docker-compose.yml` and change the `TAIGA_HOSTNAME` environment variable and then run `up`:
-
-    docker-compose build
-    docker-compose up
 
 ### How to enable the LDAP plugin
 
