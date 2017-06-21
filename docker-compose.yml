@@ -27,7 +27,10 @@ services:
       # This is not great. I suggest using something on top of this
       # to enable SSL. See the example example-nginx-ssl.conf file
       # for an alternative way to enable SSL.
-      # TAIGA_SSL: 'true'
+      # TAIGA_SSL: 'True'
+
+      # Enable SSL externally, preferred method
+      # TAIGA_SSL_BY_REVERSE_PROXY: 'True'
     volumes:
       # Media and uploads directory. Required (or you will lose all uploads)
       - ./media:/usr/src/taiga-back/media
