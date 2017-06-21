@@ -18,19 +18,5 @@ INSTALLED_APPS += ["taiga_contrib_slack"]
 # see https://github.com/ensky/taiga-contrib-ldap-auth
 # INSTALLED_APPS += ["taiga_contrib_ldap_auth"]
 
-## GOGS
-# see https://github.com/taigaio/taiga-contrib-gogs
-INSTALLED_APPS += ["taiga_contrib_gogs"]
-PROJECT_MODULES_CONFIGURATORS["gogs"] = "taiga_contrib_gogs.services.get_or_generate_config"
-
-DEFAULT_FROM_EMAIL = "your@email.com"
-SERVER_EMAIL = DEFAULT_FROM_EMAIL
-
-# Uncomment and populate with proper connection parameters
-# for enable email sending. EMAIL_HOST_USER should end by @domain.tld
-EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
-EMAIL_USE_TLS = True
-EMAIL_HOST = "smtp.mail.com"
-EMAIL_HOST_USER = "your@email.com"
-EMAIL_HOST_PASSWORD = "password"
-EMAIL_PORT = 587
+## For additional configuration options, look at:
+# https://github.com/taigaio/taiga-back/blob/master/settings/local.py.example

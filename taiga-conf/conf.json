@@ -1,0 +1,21 @@
+{
+    "api": "http://localhost/api/v1/",
+    "eventsUrl": null,
+    "eventsMaxMissedHeartbeats": 5,
+    "eventsHeartbeatIntervalTime": 60000,
+    "eventsReconnectTryInterval": 10000,
+    "debug": false,
+    "debugInfo": false,
+    "defaultLanguage": "en",
+    "themes": ["taiga"],
+    "defaultTheme": "taiga",
+    "publicRegisterEnabled": false,
+    "gravatar": true,
+    "feedbackEnabled": false,
+    "privacyPolicyUrl": null,
+    "termsOfServiceUrl": null,
+    "maxUploadFileSize": null,
+    "contribPlugins": ["/plugins/slack/slack.json"],
+    "tribeHost": null,
+    "importers": []
+}

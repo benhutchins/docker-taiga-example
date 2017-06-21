@@ -1,0 +1,67 @@
+version: '2'
+
+services:
+  taiga:
+    build: .
+    ports:
+      - 80:80
+      # - 443:443 # To enable SSL, uncomment this line. See "Enable SSL" below.
+    depends_on:
+      - postgres
+
+      # To enable taiga-events, uncomment the following lines:
+      # - events
+      # - rabbit
+      # - redis
+    environment:
+      # Hostname for your instance of Taiga. Required.
+      TAIGA_HOSTNAME: localhost
+
+      # Database variables. Required.
+      TAIGA_DB_HOST: postgres
+      TAIGA_DB_NAME: taigadb
+      TAIGA_DB_USER: taiga
+      TAIGA_DB_PASSWORD: password
+
+      # Enable SSL internally, within the Docker container. Optional.
+      # This is not great. I suggest using something on top of this
+      # to enable SSL. See the example example-nginx-ssl.conf file
+      # for an alternative way to enable SSL.
+      # TAIGA_SSL: 'true'
+    volumes:
+      # Media and uploads directory. Required (or you will lose all uploads)
+      - ./media:/usr/src/taiga-back/media
+
+      # Taiga configuration directory. Makes it easier to change configuration.
+      - ./taiga-conf:/taiga
+
+  postgres:
+    image: postgres
+    environment:
+      POSTGRES_DB: taigadb
+      POSTGRES_USER: taiga
+      POSTGRES_PASSWORD: password
+    ports:
+      - 5432
+    volumes:
+      # Postgres data directory. This ensures the database is not lost.
+      - ./pgdata:/var/lib/postgresql/data
+
+
+  # To enable taiga-events, uncomment the following lines:
+  # rabbit:
+  #   image: rabbitmq:3
+  #   hostname: rabbit
+  # 
+  # redis:
+  #   image: redis:3
+  # 
+  # celery:
+  #   image: celery
+  #   links:
+  #     - rabbit
+  # 
+  # events:
+  #   image: benhutchins/taiga-events
+  #   links:
+  #     - rabbit

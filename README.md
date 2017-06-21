@@ -2,18 +2,56 @@
 
 This repo contains several example configurations for setting up Taiga using [docker-taiga](https://github.com/benhutchins/docker-taiga).
 
-## Simple
+## Simple Example
 
 If you want a very simple example, simply pull the `docker-compose.yml` file from here:
 https://github.com/benhutchins/docker-taiga/tree/master/docker-compose.yml
 
-You will see a lot
+## Customized Example (Adds Slack & LDAP support)
 
-# Customized Example (Adds Slack & LDAP support)
+For a slightly more customized setup, this directory provides an example of how
+to extend docker-taiga and add [taiga-contrib-slack](https://github.com/taigaio/taiga-contrib-slack) and [taiga-contrib-ldap-auth](https://github.com/ensky/taiga-contrib-ldap-auth) LDAP
+plugins.
 
-For a slightly more customized setup, the [simple](https://github.com/benhutchins/docker-taiga-example/tree/master/simple/) example uses the latest stable taiga image from [benhutchins/taiga](https://hub.docker.com/r/benhutchins/taiga/), then installs [taiga-contrib-slack](https://github.com/taigaio/taiga-contrib-slack) on top of it.
-It optionally can add [taiga-contrib-ldap-auth](https://github.com/ensky/taiga-contrib-ldap-auth) for LDAP support.
+To use this example, as-is, simply clone this repo and startup Docker:
 
-# Advanced Example
+```bash
+git clone https://github.com/benhutchins/docker-taiga-example.git mytaiga
+cd mytaiga/
 
-For a more advanced example, which uses [taiga-events](https://hub.docker.com/r/benhutchins/taiga-events/) and configures a few additional plugins see the [advanced](https://github.com/benhutchins/docker-taiga-example/tree/master/advanced/) example.
+# Optional, but likely desired, update your configuration now
+vi docker-compose.yml
+vi taiga-conf/conf.json
+vi taiga-conf/local.py
+
+# Startup docker containers
+docker-compose  up -d
+
+# Wait ~30 seconds. The taiga container will initialize your postgres database.
+
+# Now open your web browser:
+oepn http://localhost/
+````
+
+### How to use
+
+First clone this repository and edit the configuration files (see [taiga-conf](https://github.com/benhutchins/docker-taiga-example/tree/master/taiga-conf)). View and edit `docker-compose.yml` and change the `TAIGA_HOSTNAME` environment variable and then run `up`:
+
+    docker-compose build
+    docker-compose up
+
+### How to enable the LDAP plugin
+
+To enable LDAP as well:
+
+1. Uncomment the relevant lines from the `Dockerfile` and `taiga-conf/local.py`
+2. Add this to your `taiga-conf/conf.json` file:
+
+    "loginFormType": "ldap",
+
+### How to enable taiga-events
+
+To enable [taiga-events](https://github.com/taigaio/taiga-events):
+
+1. Uncomment relevant lines from `docker-compose.yml`
+2. Update to `eventsUrl` inside the `taiga-conf/conf.json` file
