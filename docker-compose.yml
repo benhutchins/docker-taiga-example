@@ -17,6 +17,9 @@ services:
       # Hostname for your instance of Taiga. Required.
       TAIGA_HOSTNAME: localhost
 
+      # Sleep to allow the database time to start
+      TAIGA_SLEEP: 5
+
       # Database variables. Required.
       TAIGA_DB_HOST: postgres
       TAIGA_DB_NAME: taigadb
