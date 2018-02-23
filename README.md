@@ -25,7 +25,7 @@ vi taiga-conf/conf.json
 vi taiga-conf/local.py
 
 # Startup docker containers
-docker-compose  up -d
+docker-compose up --build -d
 
 # Wait ~30 seconds. The taiga container will initialize your postgres database.
 
