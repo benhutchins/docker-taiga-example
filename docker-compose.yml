@@ -34,6 +34,8 @@ services:
     volumes:
       # Media and uploads directory. Required (or you will lose all uploads)
       - ./media:/usr/src/taiga-back/media
+    depends_on:
+     - postgres
 
       # Taiga configuration directory. Makes it easier to change configuration.
       - ./taiga-conf:/taiga
