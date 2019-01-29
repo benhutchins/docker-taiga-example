@@ -1,4 +1,4 @@
-version: '2'
+version: '2.1'
 
 services:
   taiga:
@@ -7,7 +7,8 @@ services:
       - 80:80
       # - 443:443 # To enable SSL, uncomment this line. See "Enable SSL" below.
     depends_on:
-      - postgres
+      postgres:
+        condition: service_healthy
 
       # To enable taiga-events, uncomment the following lines:
       # - events
@@ -49,7 +50,11 @@ services:
     volumes:
       # Postgres data directory. This ensures the database is not lost.
       - ./pgdata:/var/lib/postgresql/data
-
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
   # To enable taiga-events, uncomment the following lines:
   # rabbit:
